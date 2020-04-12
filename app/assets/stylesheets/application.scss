@@ -1,7 +1,10 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 @import "./config/reset";
+@import "./config/colors";
 @import "./common";
 @import "shared/header";
 @import "shared/main-content";
 @import "shared/footer";
+@import "./users";
+@import "modules/flash";
