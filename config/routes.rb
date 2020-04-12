@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root 'contents#index'
 
   resources :users, only: [:edit, :update]
+  resources :mypages, only: [:index]
 end
