@@ -1,0 +1,28 @@
+.main-contents
+  = link_to "#" do
+    .contents__search-bar
+      = icon('fas', 'search', class: 'icon')
+      検索ページへ移動
+
+  .contents__left
+    .contents__left__group
+      %ul.contents__left__group__content
+        = link_to "#" do
+          %img.side-content__image
+          %li.contents__left__group__conetnt_title
+            タイトル : a
+          %li.contents__left__group__content-user
+            投稿者  : i
+          %li.contents__left__group__content-date
+            投稿日 : 0412
+          %ul.contents__left__group__content-tag
+            関連タグ : タグ１, タグ２
+              
+          %p.contents__left__group__content-title__text
+            メモ
+          %p.contents__left__group__content-text
+            メモです
+
+  .clear
+
+

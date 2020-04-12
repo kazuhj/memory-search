@@ -1,0 +1,19 @@
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+.wrapper {
+  background-color: whitesmoke;
+}
+
+
+.clearfix:after {
+  clear: both;
+  content: " ";
+  display: table;
+}
+
+.clear {
+  clear: both;
+}
