@@ -1,0 +1,188 @@
+.mypage-container {
+  margin: 40px auto 0;
+  padding-bottom: 40px;
+  width: 1020px;
+  height: 1000px;
+  display: block;
+  background-color: whitesmoke;
+
+  &__right-content {
+    float: right;
+    width: 700px;
+
+    & .mypage-user-icon {
+      height: 200px;
+      position: relative;
+      padding: 20px;
+      background-color: orange;
+      background-repeat: no-repeat;
+      background-size: cover;
+      text-align: center;
+
+      & a {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        transform: translate(0, -50%);
+        color: #333;
+        touch-action: manipulation;
+
+        & figure {
+          overflow: hidden;
+          width: 60px;
+          height: 60px;
+          margin: 0 auto;
+          border-radius: 50%;
+
+          & img {
+            height: 60px;
+            width: 60px;
+            background-color: white;
+          }
+        }
+
+        & h2 {
+          margin: 8px 0 0;
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 1.4;
+        }
+
+        & .mypage-number {
+          margin: 8px 0 0;
+          font-size: 0;
+
+          & div {
+            display: inline-block;
+            font-size: 14px;
+
+            & span {
+              margin: 0 0 0 8px;
+              font-size: 16px;
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+
+    & .mypage-tab-container {
+      margin: 40px 0 0;
+      background: #fff;
+
+      &__mypage-tabs {
+        background: #eee;
+        font-size: 0;
+
+        & li {
+          width: 50%;
+          display: inline-block;
+          text-align: center;
+          vertical-align: top;
+
+          &.active {
+            background: #fff;
+
+            & a {
+              border-top: 2px solid #ea352d;
+            }
+          }
+
+          & h3 {
+            font-size: 22px;
+            font-weight: bold;
+
+            & a {
+              position: relative;
+              display: block;
+              color: #333;
+              font-size: 16px;
+              line-height: 72px;
+            }
+          }
+        }
+      }
+
+      &__tab-content {
+
+        &__list {
+
+          & li {
+            position: relative;
+            border-bottom: 1px solid #eee;
+
+            &:first-child {
+              border-bottom: 1px solid #eee;
+            }
+
+            & .mypage-content-link {
+              display: block;
+              min-height: 80px;
+              padding: 16px;
+              color: #333;
+
+              &:hover {
+                background: #eee;
+                font-weight: 600;
+              }
+
+              & figure {
+                position: relative;
+                overflow: hidden;
+                float: left;
+                width: 48px;
+                height: 55px;
+
+                & img {
+                  position: absolute;
+                  top: 0;
+                  right: 0;
+                  bottom: 0;
+                  left: 0;
+                  z-index: 1;
+                  width: 100%;
+                  opacity: 1;
+                  transition: opacity .3s;
+                }
+              }
+
+              & .mypage-content-body {
+                margin: 0 40px 0 68px;
+
+                &__text {
+                  overflow: hidden;
+                  line-height: 1.5;
+                  font-size: 14px;
+                }
+
+                & time {
+                  display: inline-block;
+                  color: #888;
+                  font-size: 12px;
+
+                  & .icon-time {
+                    margin: 0 8px 0 0;
+
+                    & span {
+                      vertical-align: middle;
+                    }
+                  }
+                }
+              }
+
+              & .mypage-style-right {
+                position: absolute;
+                top: 50%;
+                right: 16px;
+                transform: translate(0, -50%);
+                font-size: 15px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
