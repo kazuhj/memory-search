@@ -1,0 +1,21 @@
+.navbar-header
+  .navber-header__left
+    %h1.header-logo 
+      = link_to "Memory", root_path
+    %h2.navber-header__left__current-group
+      選択中のグループ名 :
+    %ul.navber-header__left__member-list
+      メンバー :
+      %li.navber-header__left__member-list__member
+        
+  .navber-header__right
+    = link_to "#" do
+      .navber-header__right__create-new
+        新規投稿する
+        = icon('fas', 'plus-circle', class: 'icon')
+    %ul.navber-header__right__setting-list
+      %li.navber-header__right__setting-list__group-edit
+        = link_to "#" do
+          = image_tag 'https://icooon-mono.com/i/icon_00146/icon_001460_256.png', class: 'image-icon'
+          %p マイページ
+  .clear
