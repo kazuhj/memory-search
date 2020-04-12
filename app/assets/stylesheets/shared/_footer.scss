@@ -1,0 +1,24 @@
+.footer {
+  background-color: lightslategray;
+  border-top: 2px solid black;
+  height: 120px;
+  padding-top: 20px;
+  color: #e8e8e8;
+
+  .container {
+
+    .footer-left {
+      float: left;
+
+      & p {
+        margin-bottom: 8px;
+      }
+    }
+
+    .footer-right {
+      float: right;
+      padding-top: 50px;
+      margin-right: 10px;
+    }
+  }
+}
