@@ -1,0 +1,37 @@
+.wrapper
+  = render 'shared/mypage-header'
+  %main.mypage-container.cleafix
+    .mypage-container__right-content
+      %section.mypage-user-icon
+        = link_to "#" do
+          %figure
+            = image_tag "https://icooon-mono.com/i/icon_00146/icon_001460_256.png"
+          %h2
+            hoge
+          .mypage-number
+            %div
+              投稿数
+              %span 1
+      %section.mypage-tab-container
+        %ul.mypage-tab-container__mypage-tabs
+          %li.active
+            %h3
+              = link_to "#" do
+                最近の投稿内容
+          %li
+            %h3
+              = link_to "#" do
+                お知らせ
+        .mypage-tab-container__tab-content
+          %ul.mypage-tab-container__tab-content__list
+            %li
+              = link_to "#", class: "mypage-content-link" do
+                %figure
+                .mypage-content-body
+                  .mypage-content-body__text
+                    あ
+                  %time
+                    = icon('far', 'clock', class: 'icon-time')
+                    %span 2日前
+                = icon('fas', 'angle-right', class: 'mypage-style-right')
+    = render 'shared/side-bar'
