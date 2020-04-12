@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: memory-search_production
-  username: memory-search
-  password: <%= ENV['MEMORY-SEARCH_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
