@@ -46,6 +46,14 @@ class ContentsController < ApplicationController
     end
   end
 
+  def search
+    @contents = @group.contents.includes(:user, :tags)
+    @posts = Content.search(params[:search])
+    if params[:tag_name]
+      @posts = Content.tagged_with("#{params[:tag_name]}")
+    end
+  end
+
   private
 
   def content_params
