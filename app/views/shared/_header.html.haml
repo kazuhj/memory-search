@@ -1,16 +1,17 @@
 .navbar-header
   .navber-header__left
     %h1.header-logo 
-      = link_to "#" do
-        Memory
+      = link_to "Memory", group_contents_path(@group)
     %h2.navber-header__left__current-group
-      グループ名 : test
+      グループ名 :
+      = @group.name
     %ul.navber-header__left__member-list
-      メンバー : test1
+      メンバー :
+      = @users.pluck(:name).join(",")
       %li.navber-header__left__member-list__member
         
   .navber-header__right
-    = link_to "#" do
+    = link_to new_group_content_path do
       .navber-header__right__create-new
         新規投稿する
         = icon('fas', 'plus-circle', class: 'icon')
