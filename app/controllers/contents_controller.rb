@@ -1,5 +1,6 @@
 class ContentsController < ApplicationController
   before_action :set_group
+  before_action :set_content, only: [:show, :edit, :update, :destroy]
 
   def index
     @content = Content.new
@@ -24,7 +25,14 @@ class ContentsController < ApplicationController
   end
 
   def show
-    @content = Content.find(params[:id])
+  end
+
+  def destroy
+    if @content.destroy
+      redirect_to group_mypages_path, notice: '削除しました'
+    else
+      render :show
+    end
   end
 
   private
@@ -37,6 +45,10 @@ class ContentsController < ApplicationController
     @group = Group.find(params[:group_id])
     @users = @group.users
     @user = current_user
+  end
+
+  def set_content
+    @content = Content.find(params[:id])
   end
   
 end
