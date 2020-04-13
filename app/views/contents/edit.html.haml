@@ -1,0 +1,26 @@
+.wrapper
+  =render 'shared/header'
+  .form
+    .form-group
+      .form-title
+        投稿内容を入力
+      .form-contents
+        = form_with model:[@group,@content], local:true do |f|
+          .form__mask
+            -if @content.image.present?
+              = image_tag @content.image.to_s, id: 'img_prev'
+            -else
+              = image_tag "no_image.png", id: 'img_prev'
+            .uploadButton
+              ファイルを選択
+              = f.label :image, class: 'form__mask__image' do
+                = f.file_field :image, class: 'hidden-img', id: 'user_img'
+          .form-contents__title
+            タイトル
+            %br
+            = f.text_field :title, placeholder: 'タイトルを入力してください'
+          .form-contents__text
+            テキスト
+            %br
+            = f.text_area :text, placeholder: 'テキストを入力してください'
+          = f.submit '変更して一覧に戻る', class: 'form__submit'

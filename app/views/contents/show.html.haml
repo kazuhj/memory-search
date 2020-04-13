@@ -29,7 +29,7 @@
           %p
             = @content.text
     .content-left-btn-box
-      = link_to "編集する", "#", class: "content-edit-btn"
+      = link_to "編集する", edit_group_content_path(@content.group_id,@content.id), class: "content-edit-btn"
       = link_to "削除する", group_content_path(@content.group_id,@content.id), class: "content-delete-btn", method: :delete
     .content-right-btn-box
       = link_to "戻る", :back, class: "content-back-btn"
