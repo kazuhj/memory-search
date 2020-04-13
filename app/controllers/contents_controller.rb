@@ -1,6 +1,6 @@
 class ContentsController < ApplicationController
   before_action :set_group
-  before_action :set_content, only: [:show, :edit, :update, :destroy]
+  before_action :set_content, only: [:show, :edit, :update, :destroy, :edit, :update]
 
   def index
     @content = Content.new
@@ -29,15 +29,30 @@ class ContentsController < ApplicationController
 
   def destroy
     if @content.destroy
-      redirect_to group_mypages_path, notice: '削除しました'
+      redirect_to group_mypages_path, notice: '削除できました'
     else
       render :show
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @content.update(update_content_params)
+      redirect_to group_contents_path(@group), notice: '変更できました'
+    else
+      render :edit
     end
   end
 
   private
 
   def content_params
+    params.require(:content).permit(:text, :title, :image).merge(user_id: current_user.id)
+  end
+
+  def update_content_params
     params.require(:content).permit(:text, :title, :image).merge(user_id: current_user.id)
   end
 
