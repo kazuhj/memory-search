@@ -29,7 +29,7 @@ class ContentsController < ApplicationController
 
   def destroy
     if @content.destroy
-      redirect_to group_mypages_path
+      redirect_to group_mypages_path, notice: '削除しました'
     else
       render :show
     end
