@@ -1,0 +1,43 @@
+.wrapper
+  =render 'shared/header'
+  .search-contents
+    .search-content
+      %p.search-title キーワードで検索
+      = form_tag(search_group_contents_path,method: 'get', id: 'form') do
+        = text_field_tag :search
+        %button#sbtn2{type: "submit", class: "search-btn"}
+          = icon('fas', 'search', class: 'icon')
+    .hitokoto-fream
+      .hitokoto
+      %span.hitokoto-circle1 ひ
+      %span.hitokoto-circle2 こ
+      %p
+        関連タグはクリックすることで
+        %br
+        絞り込み結果が表示されます
+  .contents-list
+    .search-result
+      = "検索中のキーワード「#{params[:search]}」"
+    .contents-list__group
+      - @posts.each do |post|
+        %ul.contents-list__group__content
+          = link_to group_content_path(post.group_id,post.id) do
+            %img.side-content__image{:src => "#{post.image}"}
+            %li.contents-list__group__content__title
+              タイトル :
+              = post.title
+            %li.contents-list__group__content__user
+              投稿者 :
+              = post.user.name
+            %li.contents-list__group__content__date
+              投稿日 :
+              = post.created_at.strftime("%Y年%m月%d日")
+            %ul.contents__left__group__content-tag
+              関連タグ : 別途実装
+            - if post.text.present?
+              %p.contents-list__group__content__text-title
+                メモ
+              %p.contents-list__group__content__text
+                = post.text
+  .clear
+=render 'shared/footer'
