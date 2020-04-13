@@ -22,6 +22,10 @@
             %th 投稿日
             %td
               = @content.created_at.strftime("%Y年%m月%d日")
+          %tr.text
+            %th 関連タグ
+            %td
+              = render 'shared/tag_list', tag_list: @content.tag_list
               
       .content-text
         %h3 メモ

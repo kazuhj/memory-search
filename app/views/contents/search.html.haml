@@ -18,6 +18,7 @@
   .contents-list
     .search-result
       = "検索中のキーワード「#{params[:search]}」"
+      = "選択中のタグ「#{params[:tag_name]}」"
     .contents-list__group
       - @posts.each do |post|
         %ul.contents-list__group__content
@@ -33,7 +34,8 @@
               投稿日 :
               = post.created_at.strftime("%Y年%m月%d日")
             %ul.contents__left__group__content-tag
-              関連タグ : 別途実装
+              関連タグ :
+              = render 'shared/tag_list', tag_list: post.tag_list
             - if post.text.present?
               %p.contents-list__group__content__text-title
                 メモ
