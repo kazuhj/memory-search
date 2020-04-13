@@ -21,7 +21,8 @@
                 投稿日 :
                 = content.created_at.strftime("%Y年%m月%d日")
               %ul.contents__left__group__content-tag
-                関連タグ : タグ１, タグ２
+                関連タグ :
+                = render 'shared/tag_list', tag_list: content.tag_list
                   
               %p.contents__left__group__content-title__text
                 メモ

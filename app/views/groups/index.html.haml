@@ -3,15 +3,15 @@
     グループを選択してください。
     .groups
       - current_user.groups.each do |group|
-        .group
-          = link_to group_contents_path(group) do
+        = link_to group_contents_path(group) do
+          .group
             %p.group__group-name
               = group.name
 .other
   .other__title
     グループを新規作成
-  .other__link
-    = link_to new_group_path(current_user) do
+  = link_to new_group_path(current_user) do
+    .other__link
       = icon('fas', 'user-friends', class: 'icon')
       新規作成
 .contents-end

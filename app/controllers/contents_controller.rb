@@ -3,9 +3,8 @@ class ContentsController < ApplicationController
   before_action :set_content, only: [:show, :edit, :update, :destroy, :edit, :update]
 
   def index
-    @content = Content.new
-    @contents = @group.contents.includes(:user)
-    @articles = Content.order(created_at: :desc).limit(3)
+    @contents = @group.contents.includes(:user,:tags).order(updated_at: :desc)
+    @articles = @group.contents.includes(:user,:tags).order(updated_at: :desc).limit(3)
   end
 
   def new
@@ -15,12 +14,14 @@ class ContentsController < ApplicationController
 
   def create
     @content = @group.contents.new(content_params)
+    @content.user_id = current_user.id 
     if @content.save
       redirect_to group_contents_path(@group), notice: '保存できました'
     else
+      @content.images.new
       @contents = @group.contents.includes(:user)
       flash.now[:alert] = '内容を入力してください'
-      render :index
+      render :new
     end
   end
 
@@ -57,11 +58,11 @@ class ContentsController < ApplicationController
   private
 
   def content_params
-    params.require(:content).permit(:text, :title, :image).merge(user_id: current_user.id)
+    params.require(:content).permit(:text, :title, :image, :tag_list).merge(user_id: current_user.id)
   end
 
   def update_content_params
-    params.require(:content).permit(:text, :title, :image).merge(user_id: current_user.id)
+    params.require(:content).permit(:text, :title, :image, :tag_list).merge(user_id: current_user.id)
   end
 
   def set_group
