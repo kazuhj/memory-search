@@ -1,6 +1,7 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 @import "./config/reset";
+@import "mixin/btn";
 @import "./config/colors";
 @import "./common";
 @import "shared/header";
@@ -12,3 +13,5 @@
 @import "mypages/index.scss";
 @import "groups/index";
 @import "groups/group";
+@import "contents/new";
+@import "contents/show";

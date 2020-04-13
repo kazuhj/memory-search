@@ -6,23 +6,41 @@
 
   .contents__left
     .contents__left__group
-      %ul.contents__left__group__content
-        = link_to "#" do
-          %img.side-content__image
-          %li.contents__left__group__conetnt_title
-            タイトル : a
-          %li.contents__left__group__content-user
-            投稿者  : i
-          %li.contents__left__group__content-date
-            投稿日 : 0412
-          %ul.contents__left__group__content-tag
-            関連タグ : タグ１, タグ２
-              
-          %p.contents__left__group__content-title__text
-            メモ
-          %p.contents__left__group__content-text
-            メモです
+      - if @contents.present?
+        - @contents.each do |content|
+          %ul.contents__left__group__content
+            = link_to group_content_path(content.group_id,content.id) do
+              %img.side-content__image{:src => "#{content.image}"}
+              %li.contents__left__group__conetnt_title
+                タイトル :
+                = content.title
+              %li.contents__left__group__content-user
+                投稿者  :
+                = content.user.name
+              %li.contents__left__group__content-date
+                投稿日 :
+                = content.created_at.strftime("%Y年%m月%d日")
+              %ul.contents__left__group__content-tag
+                関連タグ : タグ１, タグ２
+                  
+              %p.contents__left__group__content-title__text
+                メモ
+              %p.contents__left__group__content-text
+                = content.text
+      - else
+        .no-content
+          まだ投稿はありません。
 
   .clear
-
-
+  .contents__right
+    .contents__right__group
+      .contents__right__group-title
+        至近の保存記録
+      - @articles.each do |article|
+        = link_to group_content_path(article.group_id,article.id) do
+          %ul.contents__right__group__content
+            %li.contents__right__group__content-title
+              タイトル :
+              = article.title
+            %li.contents__right__group__content-image
+              %img.right-content__image{:src => "#{article.image}"}

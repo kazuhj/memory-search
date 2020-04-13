@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:edit, :update]
   resources :groups, only: [:index, :new, :create, :edit, :update] do
-    resources :contents, only: [:index]
+    resources :contents, only: [:index, :new, :create, :show]
     resources :mypages, only: [:index]
   end
 end
