@@ -7,11 +7,12 @@
           %figure
             = image_tag "https://icooon-mono.com/i/icon_00146/icon_001460_256.png"
           %h2
-            hoge
+            = @user.name
           .mypage-number
             %div
               投稿数
-              %span 1
+              %span
+                = @content.count
       %section.mypage-tab-container
         %ul.mypage-tab-container__mypage-tabs
           %li.active
@@ -24,14 +25,20 @@
                 お知らせ
         .mypage-tab-container__tab-content
           %ul.mypage-tab-container__tab-content__list
-            %li
-              = link_to "#", class: "mypage-content-link" do
-                %figure
-                .mypage-content-body
-                  .mypage-content-body__text
-                    あ
-                  %time
-                    = icon('far', 'clock', class: 'icon-time')
-                    %span 2日前
-                = icon('fas', 'angle-right', class: 'mypage-style-right')
+            - if @contents.present?
+              - @contents.each do |content|
+                %li
+                  = link_to group_content_path(content.group_id,content.id), class: "mypage-content-link" do
+                    %figure
+                      = image_tag "#{content.image_url}"
+                    .mypage-content-body
+                      .mypage-content-body__text
+                        = content.title
+                      %time
+                        = icon('far', 'clock', class: 'icon-time')
+                        %span 2日前
+                    = icon('fas', 'angle-right', class: 'mypage-style-right')
+            - else
+              .no-content
+                まだ投稿されていません
     = render 'shared/side-bar'
