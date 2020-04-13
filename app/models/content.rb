@@ -1,4 +1,5 @@
 class Content < ApplicationRecord
+  acts_as_taggable
   belongs_to :user
   belongs_to :group
   validates :title, presence: true, unless: :image?
