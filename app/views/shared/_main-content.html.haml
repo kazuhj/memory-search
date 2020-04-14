@@ -45,3 +45,4 @@
               = article.title
             %li.contents__right__group__content-image
               %img.right-content__image{:src => "#{article.image}"}
+  = paginate(@contents)
