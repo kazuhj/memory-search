@@ -3,9 +3,12 @@
   %main.mypage-container.cleafix
     .mypage-container__right-content
       %section.mypage-user-icon
-        = link_to "#" do
+        = link_to user_path(@group) do
           %figure
-            = image_tag "https://icooon-mono.com/i/icon_00146/icon_001460_256.png"
+            - if @user.image.present?
+              = image_tag @user.image.to_s
+            - else
+              = image_tag "https://icooon-mono.com/i/icon_00146/icon_001460_256.png"
           %h2
             = @user.name
           .mypage-number
