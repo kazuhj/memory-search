@@ -39,7 +39,7 @@
                 = render 'shared/tag_list', tag_list: post.tag_list
               = link_to group_content_path(post.group_id,post.id) do
                 %p.contents-list__group__content__text-title
-                  メモ
+                  テキスト
                 %p.contents-list__group__content__text
                   = post.text
       - else
