@@ -1,0 +1,52 @@
+.pagination {
+  display: flex;
+  margin-left: 60px;
+  margin-bottom: 35px;
+  font-size: 20px;
+  padding: 5px;
+
+  & .first {
+    padding: 5px 10px;
+
+    & :hover {
+      font-size: 25px;
+      transition: all  0.5s ease;
+    }
+  }
+
+  & .page {
+    padding: 5px 10px;
+
+    &:hover {
+      background-color: #93c9ff;
+      border-radius: 15px;
+    }
+  }
+
+  & .prev {
+    padding: 5px 10px;
+
+    & :hover {
+      font-size: 25px;
+      transition: all  0.5s ease;
+    }
+  }
+
+  & .next {
+    padding: 5px 10px;
+
+    & :hover {
+      font-size: 25px;
+      transition: all  0.5s ease;
+    }
+  }
+
+  & .last {
+    padding: 5px 10px;
+
+    & :hover {
+      font-size: 25px;
+      transition: all  0.5s ease;
+    }
+  }
+}
