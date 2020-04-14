@@ -18,7 +18,10 @@
     .white
       .users-detail-description_box
         %p.text
-          = @user.text
+          - if @user.text.present?
+            = @user.text
+          - else
+            自己紹介文が設定されていません
     .content-btn-box
       = link_to "戻る", :back, class: "content-back-btn"
   =render 'shared/footer'

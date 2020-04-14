@@ -3,7 +3,7 @@
   %main.mypage-container.cleafix
     .mypage-container__right-content
       %section.mypage-user-icon
-        = link_to user_path(@group) do
+        = link_to user_path(@user) do
           %figure
             - if @user.image.present?
               = image_tag @user.image.to_s
@@ -39,7 +39,8 @@
                         = content.title
                       %time
                         = icon('far', 'clock', class: 'icon-time')
-                        %span 2日前
+                        %span 
+                          = content.created_at.strftime("%Y/%m/%d")
                     = icon('fas', 'angle-right', class: 'mypage-style-right')
             - else
               .no-content
