@@ -23,14 +23,14 @@
               %ul.contents__left__group__content-tag
                 関連タグ :
                 = render 'shared/tag_list', tag_list: content.tag_list
-                  
-              %p.contents__left__group__content-title__text
-                メモ
-              %p.contents__left__group__content-text
-                = content.text
+              = link_to group_content_path(content.group_id,content.id) do
+                %p.contents__left__group__content-title__text
+                  メモ
+                %p.contents__left__group__content-text
+                  = content.text
       - else
         .no-content
-          まだ投稿はありません。
+          まだ投稿されていません
 
   .clear
   .contents__right
