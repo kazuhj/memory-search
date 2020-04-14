@@ -3,7 +3,7 @@ class ContentsController < ApplicationController
   before_action :set_content, only: [:show, :edit, :update, :destroy, :edit, :update]
 
   def index
-    @contents = @group.contents.includes(:user,:tags).order(updated_at: :desc)
+    @contents = @group.contents.includes(:user,:tags).order(updated_at: :desc).page(params[:page]).per(10)
     @articles = @group.contents.includes(:user,:tags).order(updated_at: :desc).limit(3)
   end
 
