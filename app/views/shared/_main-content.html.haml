@@ -10,7 +10,7 @@
         - @contents.each do |content|
           %ul.contents__left__group__content
             = link_to group_content_path(content.group_id,content.id) do
-              %img.side-content__image{:src => "#{content.image}"}
+              %img.side-content__image{src: "#{content.image}"}
               %li.contents__left__group__conetnt_title
                 タイトル :
                 = content.title
@@ -44,5 +44,5 @@
               タイトル :
               = article.title
             %li.contents__right__group__content-image
-              %img.right-content__image{:src => "#{article.image}"}
+              %img.right-content__image{src: "#{article.image}"}
   = paginate(@contents)

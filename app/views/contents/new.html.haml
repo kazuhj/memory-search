@@ -1,5 +1,5 @@
 .wrapper
-  =render 'shared/header'
+  = render 'shared/header'
   .form
     .form-group
       .form-title
@@ -18,11 +18,11 @@
           .form-contents__title
             タイトル
             %br
-            = f.text_field :title, placeholder: 'タイトルを入力してください'
+            = f.text_field :title, placeholder: 'タイトルを入力してください(40文字以下)'
           .form-contents__text
             テキスト
             %br
-            = f.text_area :text, placeholder: 'テキストを入力してください'
+            = f.text_area :text, placeholder: 'テキストを入力してください(1000文字以下)'
           .form-contents__tag 複数タグを付ける場合は半角カンマ( , )で区切ってください
           関連タグ
           = f.text_field :tag_list, value: @content.tag_list.join(','), class: "form-control", placeholder: ' 例)タグ1 タグ2'
