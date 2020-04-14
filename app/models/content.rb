@@ -2,8 +2,13 @@ class Content < ApplicationRecord
   acts_as_taggable
   belongs_to :user
   belongs_to :group
-  validates :title, presence: true, unless: :image?
   mount_uploader :image, ImageUploader
+
+  validates :title, presence: true, unless: :image?
+  validates :title, length: { maximum: 40 }
+  validates :text, presence: true
+  validates :text, length: { maximum: 1000 }
+  validates :image, presence: true
 
   def self.search(search)
     return Content.all unless search
