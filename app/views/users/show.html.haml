@@ -1,0 +1,24 @@
+.wrapper
+  %section.user-details
+    .users-details__title
+      %h2 
+        = "#{@user.name}さんのユーザー情報"
+    .users-details__profile-box
+      .users-detail-photo
+        - if @user.image.present?
+          = image_tag @user.image.to_s
+        - else
+          = image_tag "https://icooon-mono.com/i/icon_00146/icon_001460_256.png"
+      %h2.users-detail-name
+        =@user.name
+      .users-detail-score
+        投稿数
+        %span
+          = @content.count
+    .white
+      .users-detail-description_box
+        %p.text
+          = @user.text
+    .content-btn-box
+      = link_to "戻る", :back, class: "content-back-btn"
+  =render 'shared/footer'

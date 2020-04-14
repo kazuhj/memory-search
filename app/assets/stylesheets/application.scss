@@ -8,7 +8,8 @@
 @import "shared/main-content";
 @import "shared/footer";
 @import "shared/side-bar";
-@import "./users";
+@import "users/user.scss";
+@import "users/show.scss";
 @import "modules/flash";
 @import "mypages/index.scss";
 @import "groups/index";

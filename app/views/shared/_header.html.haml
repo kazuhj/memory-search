@@ -19,7 +19,10 @@
       - if user_signed_in?
         %li.navber-header__right__setting-list__group-edit
           = link_to group_mypages_path do
-            = image_tag 'https://icooon-mono.com/i/icon_00146/icon_001460_256.png', class: 'image-icon'
+            - if @user.image.present?
+              = image_tag @user.image.to_s, class: 'image-icon'
+            - else
+              = image_tag 'https://icooon-mono.com/i/icon_00146/icon_001460_256.png', class: 'image-icon'
             %p マイページ
       - else
         %li.navber-header__right__setting-list__login

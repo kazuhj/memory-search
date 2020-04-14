@@ -63,10 +63,29 @@
     }
 
     .field-input {
+
       input {
         width: 100%;
         padding: 10px;
         letter-spacing: 1px;
+      }
+
+      #img_prev {
+        width: 100px;
+        height: 100px;
+        border: 1px solid gray;
+        border-radius: 50%;
+      }
+      .uploadButton {
+        @include uploadButton;
+      }
+
+      .uploadButton:hover {
+        background:#0aa;
+      }
+
+      .uploadButton input[type=file] {
+        @include uploadButton-input;
       }
     }
   }
@@ -86,7 +105,11 @@
     float: left;
     margin-top: 20px;
     color: #fff;
-    background-color: #8ec6ff;
+    background-color: #66b3ff;
+
+    &:hover {
+      background-color: #8ec6ff;
+    }
   }
 
   .field-label {
@@ -138,4 +161,11 @@
     padding: 0;
     font-size: 13px;
   }
+}
+
+.text-fream {
+  height: 100px;
+  width: 100%;
+  padding: 10px;
+  letter-spacing: 1px;
 }
