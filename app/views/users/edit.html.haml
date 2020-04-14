@@ -10,7 +10,7 @@
         =form_for(current_user) do |f|
           .field
             .field-label
-              = f.label :name
+              名前
             .field-input
               = f.text_field :name, autofocus: true
           .field
@@ -18,5 +18,22 @@
               = f.label :email
             .field-input
               = f.email_field :email
+          .field
+            .field-label
+              ユーザーアイコン
+            .field-input
+              -if @user.image.present?
+                = image_tag @user.image.to_s, id: 'img_prev' 
+              -else
+                = image_tag "no_image.png", id: 'img_prev'
+              .uploadButton
+                ファイルを選択
+                = f.label :image, class: 'form__mask__image' do
+                  = f.file_field :image, class: 'hidden-img', id: 'user_img'
+          .field
+            .field-label
+              自己紹介
+            .field-input
+              = f.text_area :text, class: 'text-fream'
           .actions
             =f.submit "変更を保存する", class:'btn'
