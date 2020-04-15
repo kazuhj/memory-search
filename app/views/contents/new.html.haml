@@ -4,11 +4,17 @@
     .form-group
       .form-title
         投稿内容を入力
+        = form_with model:[@group,@content], local:true do |f|
+          - if @content.errors.any?
+            %h2= "#{@content.errors.full_messages.count}件のエラーが発生しました。"
+            %ul
+              - @content.errors.full_messages.each do |message|
+                %li= message
       .form-contents
         = form_with model:[@group,@content], local:true do |f|
           .form__mask
-            -if @content.image.present?
-              = image_tag @content.image, id: 'img_prev'
+            -if @content.image.to_s.present?
+              = image_tag @content.image.to_s, id: 'img_prev'
             -else
               = image_tag "no_image.png", id: 'img_prev'
             .uploadButton
