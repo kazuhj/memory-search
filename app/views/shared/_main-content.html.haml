@@ -39,10 +39,11 @@
         至近の保存記録
       - @articles.each do |article|
         = link_to group_content_path(article.group_id,article.id) do
-          %ul.contents__right__group__content
-            %li.contents__right__group__content-title
-              タイトル :
-              = article.title
-            %li.contents__right__group__content-image
-              %img.right-content__image{src: "#{article.image}"}
+          - if article.user_id == current_user.id 
+            %ul.contents__right__group__content
+              %li.contents__right__group__content-title
+                タイトル :
+                = article.title
+              %li.contents__right__group__content-image
+                %img.right-content__image{src: "#{article.image}"}
   = paginate(@contents)
