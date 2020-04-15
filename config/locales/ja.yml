@@ -1,6 +1,21 @@
 ---
 ja:
   activerecord:
+    models:
+      content: 投稿 
+      user: ユーザー
+    attributes:
+      content:
+        title: タイトル
+        text: テキスト
+        image: 画像
+
+      user:
+        email: メールアドレス
+        encrypted_password: パスワード
+        text: 自己紹介文
+        image: 画像
+
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
