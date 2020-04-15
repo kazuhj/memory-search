@@ -15,7 +15,7 @@ describe ContentsController, type: :controller  do
   end
 
   describe 'GET #new' do
-    it "new.html.hamlに遷移すること" do
+    it "新規投稿ページに遷移するか" do
       group = create(:group)
       get :new, params: { group_id: group.id }
       expect(response).to render_template :new
