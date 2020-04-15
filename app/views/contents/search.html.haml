@@ -1,5 +1,5 @@
 .wrapper
-  =render 'shared/header'
+  = render 'shared/header'
   .search-contents
     .search-content
       %p.search-title キーワードで検索
@@ -24,7 +24,7 @@
         - @posts.each do |post|
           %ul.contents-list__group__content
             = link_to group_content_path(post.group_id,post.id) do
-              %img.side-content__image{:src => "#{post.image}"}
+              %img.side-content__image{src: "#{post.image}"}
               %li.contents-list__group__content__title
                 タイトル :
                 = post.title
@@ -39,7 +39,7 @@
                 = render 'shared/tag_list', tag_list: post.tag_list
               = link_to group_content_path(post.group_id,post.id) do
                 %p.contents-list__group__content__text-title
-                  メモ
+                  テキスト
                 %p.contents-list__group__content__text
                   = post.text
       - else
@@ -47,4 +47,4 @@
           まだ投稿されていません
 
   .clear
-=render 'shared/footer'
+= render 'shared/footer'

@@ -1,5 +1,5 @@
 .wrapper
-  =render 'shared/header'
+  = render 'shared/header'
   %section.item-box-container
     %h1.item-box-container__item-name 
       = @content.title
@@ -17,7 +17,7 @@
           %tr
             %th 投稿者
             %td
-              = link_to "#{@content.user.name}", "#"
+              = link_to "#{@content.user.name}", user_path(@user)
           %tr
             %th 投稿日
             %td
@@ -33,8 +33,12 @@
           %p
             = @content.text
     .content-left-btn-box
-      = link_to "編集する", edit_group_content_path(@content.group_id,@content.id), class: "content-edit-btn"
+      - if @content.user_id == current_user.id
+        = link_to "編集する", edit_group_content_path(@content.group_id,@content.id), class: "content-edit-btn"
+      - else
+        .no-btn
+          投稿者でないため、編集できません
       = link_to "削除する", group_content_path(@content.group_id,@content.id), class: "content-delete-btn", method: :delete
     .content-right-btn-box
-      = link_to "戻る", :back, class: "content-back-btn"
-  =render 'shared/footer'
+      = link_to "トップページに戻る", group_contents_path(@group), class: "content-back-btn"
+  = render 'shared/footer'

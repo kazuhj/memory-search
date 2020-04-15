@@ -5,14 +5,14 @@
         %h2 Edit Account
         %h5 アカウントの編集
         = link_to "ログアウト", destroy_user_session_path,method: :delete, class: 'btn'
-        = link_to "戻る", :back, class: 'btn', style: 'width: 170px'
+        = link_to "マイページへ戻る", group_mypages_path(@group), class: 'btn', style: 'width: 180px'
       .account-page__inner--right.user-form
-        =form_for(current_user) do |f|
+        = form_for(current_user) do |f|
           .field
             .field-label
               名前
             .field-input
-              = f.text_field :name, autofocus: true
+              = f.text_field :name, autofocus: true, placeholder: "20文字以内で入力してください"
           .field
             .field-label
               = f.label :email
@@ -22,9 +22,9 @@
             .field-label
               ユーザーアイコン
             .field-input
-              -if @user.image.present?
+              - if @user.image.present?
                 = image_tag @user.image.to_s, id: 'img_prev' 
-              -else
+              - else
                 = image_tag "no_image.png", id: 'img_prev'
               .uploadButton
                 ファイルを選択
@@ -36,4 +36,4 @@
             .field-input
               = f.text_area :text, class: 'text-fream'
           .actions
-            =f.submit "変更を保存する", class:'btn'
+            = f.submit "変更を保存する", class:'btn'

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user
+  before_action :set_group
 
   def show
     @group = Group.find_by(params[:group_id])
@@ -29,5 +30,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def set_group
+    @group = Group.find_by(params[:group_id])
+  end
 
 end
