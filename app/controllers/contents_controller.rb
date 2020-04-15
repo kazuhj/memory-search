@@ -18,7 +18,6 @@ class ContentsController < ApplicationController
     if @content.save
       redirect_to group_contents_path(@group), notice: '保存できました'
     else
-      @content.images.new
       @contents = @group.contents.includes(:user)
       flash.now[:alert] = '内容を入力してください'
       render :new
