@@ -10,7 +10,7 @@
 .other
   .other__title
     グループを新規作成
-  = link_to new_group_path(current_user) do
+  = link_to new_group_path(current_user), data: { "turbolinks"=> false } do
     .other__link
       = icon('fas', 'user-friends', class: 'icon')
       新規作成
