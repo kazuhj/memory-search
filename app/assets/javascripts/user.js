@@ -57,11 +57,16 @@ $(function() {
   $(document).on("click", ".group-user__btn--add", function() {
     const userName = $(this).attr("data-user-name");
     const userId = $(this).attr("data-user-id");
+    var alert = "ユーザーの追加は相手に事前確認しておくことを推奨します\n「更新する」ボタンを押すと反映されます"
+    if(!confirm(alert)){
+      return false;
+    }
     $(this)
       .parent()
       .remove();
     addDeleteUser(userName, userId);
     addMember(userId);
+
   });
   $(document).on("click", ".group-user__btn--remove", function() {
     $(this)

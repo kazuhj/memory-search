@@ -1,3 +1,4 @@
 .group-form
   %h1 グループ編集
   = render partial: 'form', locals: { group: @group }
+  = link_to "このグループを削除する", group_path(@group), class: "group-form__delete-btn", method: :delete
