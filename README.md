@@ -73,12 +73,9 @@ Capistranoによる自動デプロイ
 <img width="1248" alt="スクリーンショット 2020-04-14 22.49.02.png" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/526620/15e17e0f-bad0-1f9d-7d19-d1d42f256eb0.png">
 
 ## 課題
-- グループ作成・更新時に他のユーザーを承認なしで追加できる
 - １枚しか画像保存できない
 
 ## 別途実装予定
-- パンくず機能
-- グループ招待機能
 - 画像複数枚投稿機能
 
 # memory-search DB設計
