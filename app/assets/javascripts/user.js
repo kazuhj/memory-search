@@ -57,7 +57,7 @@ $(function() {
   $(document).on("click", ".group-user__btn--add", function() {
     const userName = $(this).attr("data-user-name");
     const userId = $(this).attr("data-user-id");
-    var alert = "ユーザーの追加は相手に事前確認しておくことを推奨します\n「更新する」ボタンを押すと反映されます"
+    var alert = "ユーザーの追加は相手に事前確認しておくことを推奨します\nグループ作成者は現在の投稿内容に個人情報などが含まれてないことを確認してください\n「更新する」ボタンを押すと反映されます"
     if(!confirm(alert)){
       return false;
     }
